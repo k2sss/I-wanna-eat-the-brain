@@ -5,12 +5,14 @@ using DG.Tweening;
 public class Trap : MonoBehaviour
 {
     private Animator _animator;
+    public bool isHarmless;
     public bool isDestroyable;
     public float destroyTime = 100;
 
     protected virtual void Awake()
     { 
         _animator = GetComponent<Animator>();
+        if(!isHarmless)
         gameObject.tag = "Killer";
         Collider2D c = gameObject.GetComponent<Collider2D>();
         if (c != null)
