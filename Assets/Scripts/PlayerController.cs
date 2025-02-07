@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     }
     public void  HorizontalMove()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
         Flip(horizontalInput);
         rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, 0);
         
