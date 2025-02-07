@@ -6,7 +6,9 @@ public class GameEventTrigger : MonoBehaviour
 {
     public BoxCollider2D _collider;
     public bool isTriggered;
+    private bool isPlayerEnter;
     public UnityEvent gameEvent;
+    public UnityEvent onPlayerOut;
     private void OnDrawGizmos()
     {
         if (_collider == null) return;
@@ -28,12 +30,25 @@ public class GameEventTrigger : MonoBehaviour
     {
         isTriggered = false;
     }
+    public void DisableTrigger()
+    {
+        isTriggered = true;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !isTriggered)
         {
-            isTriggered = true;
+            isPlayerEnter = true;
+           isTriggered = true;
             gameEvent?.Invoke();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") &&isPlayerEnter)
+        {
+            isPlayerEnter = false;
+            onPlayerOut?.Invoke();
         }
     }
 }
