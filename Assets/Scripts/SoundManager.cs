@@ -16,6 +16,11 @@ public class SoundManager : BaseMonoManager<SoundManager>
     {
         audioSource.PlayOneShot(clip, volume);
     }
+    public void PlaySound(string Path, float volume = 1f)
+    {
+        AudioClip clip = Resources.Load<AudioClip>(Path);
+        audioSource.PlayOneShot(clip, volume);
+    }
     public void PlayRandomMusic(AudioClip[] clips, float volume = 1f,bool isLoop = true)
     {
         PlayMusic(clips[Random.Range(0, clips.Length)], volume, isLoop);

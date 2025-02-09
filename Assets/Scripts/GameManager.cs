@@ -9,6 +9,7 @@ using static UnityEngine.Rendering.HDROutputUtils;
 public class GameManager : BaseMonoManager<GameManager>
 {
     public UIManager UImgr;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -16,9 +17,9 @@ public class GameManager : BaseMonoManager<GameManager>
 
     }
 
-    private void Start()
+    protected virtual void Start()
     {
-        UImgr.blackScreen.FadeOut(1);
+         UImgr.blackScreen.FadeOut(1);
     }
     public void LoadSceneAsync(string sceneName)
     {

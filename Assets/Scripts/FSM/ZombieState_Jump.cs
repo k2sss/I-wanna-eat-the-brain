@@ -25,7 +25,7 @@ public class ZombieState_Jump : MonoBaseState
         controller.rb.velocity = new Vector2(controller.rb.velocity.x, JumpForce);
         isSecondJump = false;
         enterTimer = 0.2f;
-        SoundManager.Instance.PlaySound(jumpSound);
+        SoundManager.Instance.PlaySound(jumpSound,0.5f);
     }
 
     public override void OnExit()
@@ -49,7 +49,7 @@ public class ZombieState_Jump : MonoBaseState
         if (Input.GetKeyDown(KeyCode.Space) && enterTimer<0f && isSecondJump == false)
         {
             isSecondJump = true;
-            SoundManager.Instance.PlayRandomSound(FartSounds);
+            SoundManager.Instance.PlayRandomSound(FartSounds,0.3f);
             jumpParticle.Emit(5);
             controller.animator.CrossFade("Jump", 0.1f);
             controller.rb.velocity = new Vector2(controller.rb.velocity.x, JumpForce);

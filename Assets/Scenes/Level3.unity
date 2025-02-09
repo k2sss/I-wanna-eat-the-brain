@@ -475,8 +475,8 @@ MonoBehaviour:
   isHarmless: 0
   isDestroyable: 0
   destroyTime: 100
---- !u!61 &166006465
-BoxCollider2D:
+--- !u!60 &166006464
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -504,10 +504,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7093508}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -517,9 +517,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.4852762}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.035035163, y: 1.4944005}
+      - {x: -0.48114902, y: 1.0918761}
+      - {x: -0.6489685, y: 0.17130075}
+      - {x: -0.05024731, y: -0.013815463}
+      - {x: 0.64997715, y: 0.21275039}
+      - {x: 0.28536797, y: 1.352319}
+  m_UseDelaunayMesh: 0
 --- !u!1 &300273221
 GameObject:
   m_ObjectHideFlags: 3
@@ -968,7 +974,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.30856, y: -1.73874, z: -12.12}
+  m_LocalPosition: {x: 56.32649, y: -1.73874, z: -12.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3492,7 +3498,7 @@ PrefabInstance:
       addedObject: {fileID: 166006463}
     - targetCorrespondingSourceObject: {fileID: 5740119901646525581, guid: 080a98405f8524944b136bb8b0a78cc0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 166006465}
+      addedObject: {fileID: 166006464}
   m_SourcePrefab: {fileID: 100100000, guid: 080a98405f8524944b136bb8b0a78cc0, type: 3}
 --- !u!1 &1566137414
 GameObject:
@@ -4186,7 +4192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbc7dfaf93dde64bba67da33ef8a522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Level2
+  nextSceneName: Level4
 --- !u!95 &1804376791
 Animator:
   serializedVersion: 5
