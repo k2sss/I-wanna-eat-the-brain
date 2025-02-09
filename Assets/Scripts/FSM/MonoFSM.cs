@@ -26,6 +26,11 @@ public class MonoFSM
         if (stateID < 0 || stateID >= stateList.Count) return null;
         return stateList[stateID];
     }
+    public bool CompareState(int stateID)
+    {
+        if (GetState(stateID) ==curState) return true;
+        return false;
+    }
     public MonoBaseState GetCurrentState()
     {
         return curState;
