@@ -53,7 +53,7 @@ public class ZombieStateDeath : MonoBaseState
 
     public override void OnUpdate()
     {
-       if (Input.GetMouseButtonDown(0))
+       if (Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.R))
         {
             Restart();
         }
