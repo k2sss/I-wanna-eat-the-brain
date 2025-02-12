@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 namespace Undertale
 {
     public class UndertaleButton : MonoBehaviour
@@ -13,7 +14,7 @@ namespace Undertale
         public Transform heartPos;
         private HeartController heartController;
         private AudioClip selectAudioclip;
-        public UnityEvent OnHandle;
+        public Action OnHandle;
         private void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -23,7 +24,7 @@ namespace Undertale
         [ContextMenu("Enable")]
         public void Enable()
         {
-           
+            
             heartController.transform.position = heartPos.position;
             spriteRenderer.sprite = selectedSprite;
             SoundManager.Instance.PlaySound(selectAudioclip);

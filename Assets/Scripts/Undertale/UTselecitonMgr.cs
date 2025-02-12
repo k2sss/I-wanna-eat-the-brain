@@ -12,13 +12,13 @@ namespace Undertale
         public GameObject prefab;
         private List<UTselection> selections = new();
         private int currentSelect;
-        
+
         public void Set(List<SelectionInfo> infos)
         {
             Clean();
             foreach (SelectionInfo info in infos)
             {
-                GameObject go = Instantiate(prefab,transform);
+                GameObject go = Instantiate(prefab, transform);
                 UTselection s = go.GetComponent<UTselection>();
                 s.Init(info.targetName);
                 s.OnSelect += info.OnSelect;
@@ -28,7 +28,7 @@ namespace Undertale
         }
         public void Clean()
         {
-            
+
             currentSelect = 0;
             selections.Clear();
             while (transform.childCount > 0)
@@ -50,16 +50,16 @@ namespace Undertale
         public void SelectVertical(int dir)
         {
             int next = currentSelect + 2 * dir;
-          
+
             if (next < 0) next = 0;
-            if(next >= selections.Count)    next = selections.Count - 1;
+            if (next >= selections.Count) next = selections.Count - 1;
 
             Select(next);
         }
         public void SelectHorizontal(int dir)
         {
             int next = currentSelect + 1 * dir;
-          
+
             if (next < 0) next = 0;
             next %= selections.Count;
 
@@ -74,11 +74,8 @@ namespace Undertale
         }
         public void InvokeCurrentSelect()
         {
-            if (selections[currentSelect] != null)
-            {
-                selections[currentSelect].Handle();
-            }
-            
+            if (currentSelect >= selections.Count) return;
+            selections[currentSelect].Handle();
         }
     }
 

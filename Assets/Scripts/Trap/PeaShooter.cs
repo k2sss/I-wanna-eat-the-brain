@@ -25,6 +25,10 @@ public class PeaShooter : Trap
         }
         ShootBullet(index);
     }
+    public void SetShootSpeed(float speed)
+    {
+        this.ShootSpeed = speed;
+    }
     public void ShootBullet(int index)
     {
         GameObject obj = ObjectPool.Instance.GetObject(bulletPrefabs[index]);

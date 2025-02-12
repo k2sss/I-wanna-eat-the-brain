@@ -15,8 +15,9 @@ namespace Undertale
             controller.ChangeGravity(0);
         }
 
-        public override void OnExit()
+        public override void OnExit(MonoBaseState nextState)
         {
+            if(nextState is StateBlueHeart)
             controller._animator.Play("red2blue");
         }
 
@@ -27,14 +28,7 @@ namespace Undertale
 
         public override void OnUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                controller.fsm.SwitchState(1);
-            }
-               if (Input.GetKeyDown(KeyCode.E))
-            {
-                controller.fsm.SwitchState(2);
-            }
+            
         }
         public void RedHeartMove()
         {

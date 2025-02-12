@@ -8,6 +8,7 @@ public class Trap : MonoBehaviour
     public bool isHarmless;
     public bool isDestroyable;
     public float destroyTime = 100;
+    public GameEventTrigger[] triggers;
 
     protected virtual void Awake()
     { 
@@ -24,6 +25,14 @@ public class Trap : MonoBehaviour
        
         if (isDestroyable)
             GameManager.Instance.Delay(destroyTime, () => Destroy(gameObject));
+    }
+    public void EnableTrigger(int index)
+    {
+        if (index < 0 || index >= triggers.Length)
+        {
+            return;
+        }
+        triggers[index].EnableTrigger();
     }
     public void PlayAnimation(string Anim)
     {
@@ -92,5 +101,5 @@ public class Trap : MonoBehaviour
             return null;
         }
     }
-
+    
 }

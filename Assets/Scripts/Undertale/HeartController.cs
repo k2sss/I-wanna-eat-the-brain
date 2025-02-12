@@ -21,6 +21,11 @@ namespace Undertale
         private void Update()
         {
             fsm.Update();
+            //Test
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                fsm.SwitchState(3);
+            }
         }
         private void FixedUpdate()
         {
@@ -39,7 +44,13 @@ namespace Undertale
         {
             rb.gravityScale = value;
         }
-
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Killer"))
+            {
+                fsm.SwitchState(3);
+            }
+        }
     }
 
 }

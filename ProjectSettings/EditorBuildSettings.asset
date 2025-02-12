@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level5.unity
     guid: d51b4a62667c3634ab1dbf482140fe08
+  - enabled: 1
+    path: Assets/Scenes/Level5After.unity
+    guid: 0de662ee2fa35bc438e7f260aa5724c7
+  - enabled: 1
+    path: Assets/Scenes/UndertaleScene.unity
+    guid: 32df19eaacf575a44957e251595dff37
   m_configObjects: {}

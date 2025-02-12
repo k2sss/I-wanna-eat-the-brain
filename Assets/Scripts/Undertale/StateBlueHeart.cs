@@ -21,8 +21,9 @@ namespace Undertale
             controller.ChangeGravity(gravityScale);
         }
 
-        public override void OnExit()
+        public override void OnExit(MonoBaseState nextState)
         {
+            if(nextState is StateRedHeart)
             controller._animator.Play("blue2red");
         }
 

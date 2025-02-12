@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,20 @@ using UnityEngine.UI;
 public class TextDisplay : MonoBehaviour
 {
     // public
-
     public Text text;
     public AudioClip clip;
     public float TimeInterval = 0.2f;
 
+    /// <summary>
+    /// 文字显示完成时触发的回调
+    /// </summary>
+    public System.Action OnDisplayComplete;
+    public void Display(string str,Action OnDisplayComplete,float speed = 0.03f)
+    {
+        this.OnDisplayComplete = null;
+        this.OnDisplayComplete += OnDisplayComplete;
+       Display(str,speed);
+    }
     /// <summary>
     /// 以打字机形式显示文字
     /// </summary>
@@ -27,7 +37,7 @@ public class TextDisplay : MonoBehaviour
         timmer = 0;
         lastAudioTime = -TimeInterval;
         text.text = "";
-        isDiplaying = true;
+        isDisplaying = true;
         richTag.Clear();
     }
 
@@ -38,13 +48,13 @@ public class TextDisplay : MonoBehaviour
     {
         enabled = false;
         text.text = str;
-        isDiplaying = false;
+        isDisplaying = false;
+        
     }
 
-    public bool isDiplaying { get; private set; } = false;
+    public bool isDisplaying { get; private set; } = false;
 
     // private
-
     private string nowDisplay;
     private int nowDisplayCount;
     private float speed;
@@ -92,6 +102,13 @@ public class TextDisplay : MonoBehaviour
         {
             SoundManager.Instance.PlaySound(clip, 1.0f);
             lastAudioTime = Time.time;
+        }
+
+        // 文字完全显示后触发回调
+        if (nowDisplayCount >= nowDisplay.Length)
+        {
+            isDisplaying = false;
+            OnDisplayComplete?.Invoke();
         }
     }
 
