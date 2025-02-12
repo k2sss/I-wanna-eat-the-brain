@@ -13,7 +13,7 @@ public class ZombieStateDeath : MonoBaseState
     public bool isDead;
     public ParticleSystem DeathParticle;
     public GameObject deathUI;
-    public AudioClip deathSound;
+    public AudioClip deathSound,deathSound2;
     public List<AudioClip> deathMusics;
     private bool isLoadingScene;
     
@@ -27,6 +27,7 @@ public class ZombieStateDeath : MonoBaseState
         originRb.isKinematic = true;
         originRb.velocity = Vector3.zero;
         SoundManager.Instance.PlaySound(deathSound);
+        if (deathSound2) SoundManager.Instance.PlaySound(deathSound2);
         SoundManager.Instance.PlayRandomMusic(deathMusics.ToArray(),1,false);
         Invoke(nameof(Restart), 8);
         DeathParticle.Emit(50);
