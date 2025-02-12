@@ -24,8 +24,12 @@ public class Brain : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            SoundManager.Instance.PlayRandomSound(eatips);
-            GameManager.Instance.LoadSceneAsync(nextSceneName);
+            PlayerController pc = collision.GetComponent<PlayerController>();
+            if (!pc.fsm.CompareState((int)ZombieStateName.Death))
+            {
+                SoundManager.Instance.PlayRandomSound(eatips);
+                GameManager.Instance.LoadSceneAsync(nextSceneName);
+            }
         }
     }
 }
