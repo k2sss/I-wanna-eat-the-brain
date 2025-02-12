@@ -5,7 +5,9 @@ using UnityEngine;
 public class ZombieState : MonoBaseState
 {
     public PlayerController controller;
-    
+    public BoxCollider2D boxCollider;
+    public LayerMask targetLayer;
+
     public override void OnEnter()
     {
        // controller.animator.CrossFade("IDLE", 0.1f);
@@ -19,6 +21,12 @@ public class ZombieState : MonoBaseState
     public override void OnFixedUpdate()
     {
         controller.HorizontalMove();
+
+        if (!IsOverlappingTargetLayer())
+        {
+            if (controller.fsm.GetCurrentState() == this)
+                controller.fsm.SwitchState((int)ZombieStateName.FALL);
+        }
     }
 
     public override void OnUpdate()
@@ -37,7 +45,11 @@ public class ZombieState : MonoBaseState
         {
             controller.fsm.SwitchState((int)ZombieStateName.JUMP);
         }
-       
+
+    }
+    bool IsOverlappingTargetLayer()
+    {
+        return Physics2D.OverlapBox(boxCollider.bounds.center, boxCollider.bounds.size, 0, targetLayer) != null;
     }
 }
 

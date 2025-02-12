@@ -14,18 +14,24 @@ public class ZombieState_Jump : MonoBaseState
     public ParticleSystem jumpParticle;
     public AudioClip[] FartSounds;
     public AudioClip jumpSound;
-    private void Awake()
-    {
-         
-    }
+    public BoxCollider2D boxCollider;
+    public LayerMask targetLayer;
   
     public override void OnEnter()
     {
-        controller.animator.CrossFade("Jump", 0.1f);    
-        controller.rb.velocity = new Vector2(controller.rb.velocity.x, JumpForce);
-        isSecondJump = false;
-        enterTimer = 0.2f;
-        SoundManager.Instance.PlaySound(jumpSound,0.5f);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            controller.animator.CrossFade("Jump", 0.1f);
+            controller.rb.velocity = new Vector2(controller.rb.velocity.x, JumpForce);
+            enterTimer = 0.2f;
+            SoundManager.Instance.PlaySound(jumpSound, 0.5f);
+            isSecondJump = false;
+        }
+        else
+        {
+            enterTimer = 0f;
+            isSecondJump = false;
+        }
     }
 
     public override void OnExit(MonoBaseState nextState)
@@ -39,6 +45,12 @@ public class ZombieState_Jump : MonoBaseState
         if (controller.rb.velocity.y >0f && !Input.GetKey(KeyCode.Space))
         {
             controller.rb.AddForce(Vector2.down * ExtraGravity);
+        }
+
+        if (IsOverlappingTargetLayer())
+        {
+            if (controller.fsm.GetCurrentState() == this)
+                controller.fsm.SwitchState(0);
         }
     }
 
@@ -72,8 +84,6 @@ public class ZombieState_Jump : MonoBaseState
         if (collision.gameObject.layer == 3)
         {
             isGround = true;
-            if(controller.fsm.GetCurrentState() == this)
-            controller.fsm.SwitchState(0);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -82,5 +92,10 @@ public class ZombieState_Jump : MonoBaseState
         {
             isGround = false;
         }
+    }
+
+    bool IsOverlappingTargetLayer()
+    {
+        return Physics2D.OverlapBox(boxCollider.bounds.center, boxCollider.bounds.size, 0, targetLayer) != null;
     }
 }

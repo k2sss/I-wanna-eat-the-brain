@@ -59,4 +59,5 @@ public enum ZombieStateName
     Normal,
     JUMP,
     Death,
+    FALL,
 }
