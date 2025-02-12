@@ -14,6 +14,7 @@ public class SoundManager : BaseMonoManager<SoundManager>
     }
     public void PlaySound(AudioClip clip,float volume = 1f)
     {
+        if (clip == null) return;
         audioSource.PlayOneShot(clip, volume);
     }
     public void PlaySound(string Path, float volume = 1f)

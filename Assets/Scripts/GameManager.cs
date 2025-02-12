@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using static Unity.Collections.AllocatorManager;
-using static UnityEngine.Rendering.HDROutputUtils;
+
 
 public class GameManager : BaseMonoManager<GameManager>
 {
     public UIManager UImgr;
+    public bool isFadeIn = true;
     
     protected override void Awake()
     {
@@ -19,6 +20,7 @@ public class GameManager : BaseMonoManager<GameManager>
 
     protected virtual void Start()
     {
+        if(isFadeIn)
          UImgr.blackScreen.FadeOut(1);
     }
     public void LoadSceneAsync(string sceneName)

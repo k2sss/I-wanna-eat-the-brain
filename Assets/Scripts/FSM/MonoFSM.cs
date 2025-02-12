@@ -38,7 +38,7 @@ public class MonoFSM
     public virtual void SwitchState(MonoBaseState nextState)
     {
         if (curState == nextState) return;
-        curState.OnExit();
+        curState.OnExit(nextState);
         curState = nextState;
         curState.OnEnter();
     }

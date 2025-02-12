@@ -11,7 +11,7 @@ public class ZombieState : MonoBaseState
        // controller.animator.CrossFade("IDLE", 0.1f);
     }
 
-    public override void OnExit()
+    public override void OnExit(MonoBaseState nextState)
     {
      
     }

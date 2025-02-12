@@ -133,6 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e033e925b58924f9a611da7807869b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  direction: {x: 0, y: 0}
+  duration: 0
   ExplodeObject: {fileID: 8284994994902252339, guid: e17892f2ec6e6544e83ea8a6de44632e, type: 3}
   explodeSound: {fileID: 8300000, guid: 1ed12189bd9e1b848a6a60347ee6950b, type: 3}
   explodeTime: 3

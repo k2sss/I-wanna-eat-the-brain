@@ -28,7 +28,7 @@ public class ZombieState_Jump : MonoBaseState
         SoundManager.Instance.PlaySound(jumpSound,0.5f);
     }
 
-    public override void OnExit()
+    public override void OnExit(MonoBaseState nextState)
     {
         controller.animator.CrossFade("FallBuffer", 0.1f);
     }

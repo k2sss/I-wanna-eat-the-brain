@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 namespace Undertale
 {
     public class FightUI : MonoBehaviour
@@ -14,9 +16,10 @@ namespace Undertale
         public UTPeashooter target;
         public Animator sliceAnimator;
         public Animator targetAnimator;
+        private Action OnFinish;
         private void Update()
         {
-            SingMoveSpeed += 10 * Time.deltaTime;
+            SingMoveSpeed += 20 * Time.deltaTime;
             if (!isPressed)
             {
                 if (Sign.transform.position.x > leftLimit.position.x)
@@ -35,8 +38,13 @@ namespace Undertale
                 OnPressed();
             }
         }
+        public void AddFinishListener(Action action)
+        {
+            OnFinish += action;
+        }
         public void Init()
         {
+            OnFinish = null;//Çå¿ÕÎ¯ÍÐ
             isPressed = false;
             SingMoveSpeed = 2;
             gameObject.SetActive(true);
@@ -52,12 +60,10 @@ namespace Undertale
             GameManager.Instance.Delay(0.5f, () => target.Hurt());
 
             GameManager.Instance.Delay(1, () => targetAnimator.Play("Quit"));
-            GameManager.Instance.Delay(1.2f, () =>
+            GameManager.Instance.Delay(1.4f, () =>
             {
                 gameObject.SetActive(false);
-                HeartController c = UTGameManager.Instance.GetPlayer();
-                c.fsm.SwitchState(0);
-                c.transform.position = UTGameManager.Instance.heartStartPos.position;
+                OnFinish?.Invoke();
             });
         }
 
