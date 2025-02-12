@@ -1354,7 +1354,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07515621, y: 0.31315896}
+  m_Offset: {x: 0.07515621, y: 0.07094556}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1365,7 +1365,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5203125, y: 1.898819}
+  m_Size: {x: 1.5203125, y: 2.383246}
   m_EdgeRadius: 0
 --- !u!114 &278851834
 MonoBehaviour:
@@ -1936,6 +1936,7 @@ MonoBehaviour:
   isHarmless: 0
   isDestroyable: 0
   destroyTime: 100
+  triggers: []
 --- !u!58 &386534752
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2238,8 +2239,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -355817871
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 17c94ea7b67a63e42addbb66a3a003e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2877,7 +2878,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07515621, y: 0.31315896}
+  m_Offset: {x: 0.07515621, y: 0.07094556}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2888,7 +2889,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5203125, y: 1.898819}
+  m_Size: {x: 1.5203125, y: 2.383246}
   m_EdgeRadius: 0
 --- !u!114 &710176565
 MonoBehaviour:
@@ -4770,7 +4771,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07515621, y: 0.31315896}
+  m_Offset: {x: 0.07515621, y: 0.07094556}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4781,7 +4782,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5203125, y: 1.898819}
+  m_Size: {x: 1.5203125, y: 2.383246}
   m_EdgeRadius: 0
 --- !u!114 &982778473
 MonoBehaviour:
@@ -5263,9 +5264,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -355817871
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4ec804fd61f817542bfb80f9b68bc642, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6907,6 +6908,7 @@ MonoBehaviour:
   isHarmless: 0
   isDestroyable: 0
   destroyTime: 100
+  triggers: []
 --- !u!1 &1373697955
 GameObject:
   m_ObjectHideFlags: 0
@@ -8384,7 +8386,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07515621, y: 0.31315896}
+  m_Offset: {x: 0.07515621, y: 0.07094556}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8395,7 +8397,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5203125, y: 1.898819}
+  m_Size: {x: 1.5203125, y: 2.383246}
   m_EdgeRadius: 0
 --- !u!114 &1641913129
 MonoBehaviour:
@@ -9099,6 +9101,7 @@ MonoBehaviour:
   isHarmless: 1
   isDestroyable: 0
   destroyTime: 100
+  triggers: []
 --- !u!1 &1828764746
 GameObject:
   m_ObjectHideFlags: 0
@@ -9965,7 +9968,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07515621, y: 0.31315896}
+  m_Offset: {x: 0.07515621, y: 0.07094556}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9976,7 +9979,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5203125, y: 1.898819}
+  m_Size: {x: 1.5203125, y: 2.383246}
   m_EdgeRadius: 0
 --- !u!114 &1958287940
 MonoBehaviour:
@@ -11284,6 +11287,7 @@ MonoBehaviour:
   isHarmless: 0
   isDestroyable: 0
   destroyTime: 100
+  triggers: []
 --- !u!1 &2116219375
 GameObject:
   m_ObjectHideFlags: 0
@@ -11465,6 +11469,14 @@ PrefabInstance:
     - target: {fileID: 8703524943035865895, guid: 57ce08c01b8b4cb42999f40d9953b31a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976100280198264590, guid: 57ce08c01b8b4cb42999f40d9953b31a, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2257309
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976100280198264590, guid: 57ce08c01b8b4cb42999f40d9953b31a, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.12817764
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
