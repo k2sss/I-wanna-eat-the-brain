@@ -12,6 +12,8 @@ public class ZeroGravity : MonoBehaviour
         rb.drag = 1;
 
         SoundManager.Instance.PlayMusic(music);
+
+        enabled=true;
     }
     private void Update()
     {
