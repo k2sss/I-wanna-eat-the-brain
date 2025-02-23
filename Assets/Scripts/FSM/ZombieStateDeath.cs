@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEngine.UI.Image;
@@ -32,6 +33,9 @@ public class ZombieStateDeath : MonoBaseState
         Invoke(nameof(Restart), 8);
         DeathParticle.Emit(50);
         Instantiate(deathUI);
+
+
+        GameObject.FindAnyObjectByType<PlayerController>().enabled = true ;
     }
     public void Restart()
     {

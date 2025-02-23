@@ -5,7 +5,7 @@ using UnityEngine;
 public class Level7 : MonoBehaviour
 {
     public PlayerController controller;
-
+    public GameObject diangun;
     public void EnterSky()
     {
         SoundManager.Instance.musicAudioSource.mute = true;
@@ -14,5 +14,13 @@ public class Level7 : MonoBehaviour
             //SoundManager.Instance.musicAudioSource.mute =false;
             controller.fsm.SwitchState(2);
         });
+    }
+    public void Diangun()
+    {
+        GameManager.Instance.Delay(6, () => {
+            
+            GameObject.Instantiate(diangun);
+        });
+      
     }
 }

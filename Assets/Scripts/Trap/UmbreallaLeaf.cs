@@ -10,6 +10,11 @@ public class UmbreallaLeaf : Trap
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 100);
+            
         }
+    }
+    public void DelayShow(float time)
+    {
+        GameManager.Instance.Delay(time, ()=>gameObject.SetActive(true));
     }
 }

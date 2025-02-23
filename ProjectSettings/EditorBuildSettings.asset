@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UndertaleScene.unity
     guid: 32df19eaacf575a44957e251595dff37
+  - enabled: 1
+    path: Assets/Scenes/Level6.unity
+    guid: feccc69a3404d45e2b96584f06927dac
+  - enabled: 1
+    path: Assets/Scenes/Level7.unity
+    guid: dcfd46a3a63559846bb3fff7060e9c8b
   m_configObjects: {}

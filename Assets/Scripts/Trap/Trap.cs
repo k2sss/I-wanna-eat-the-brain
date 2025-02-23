@@ -67,10 +67,17 @@ public class Trap : MonoBehaviour
     {
         float[] fargs = FloatArgExplainer(args);
         //参数一代表duration
-        //参数二代表位移量
+        //参数二代表位移量 
+        //参数三代表延迟时间
         if (fargs.Length == 2)
         {
             transform.DOMoveY(transform.position.y + fargs[1], fargs[0]);
+        }
+        else
+        if (fargs.Length == 3)
+        {
+            GameManager.Instance.Delay(fargs[2], () => transform.DOMoveY(transform.position.y + fargs[1], fargs[0]));
+           
         }
     }
     public void MoveX(string args)
@@ -78,6 +85,7 @@ public class Trap : MonoBehaviour
         float[] fargs = FloatArgExplainer(args);
         //参数一代表duration
         //参数二代表位移量
+        
         if (fargs.Length == 2)
         {
             transform.DOMoveX(transform.position.x + fargs[1], fargs[0]);
@@ -100,6 +108,10 @@ public class Trap : MonoBehaviour
             Debug.LogError(e.Message);
             return null;
         }
+    }
+    public void Harmful()
+    {
+        gameObject.tag = "Killer";
     }
     
 }

@@ -14,18 +14,25 @@ public class ZombieState_Jump : MonoBaseState
     public ParticleSystem jumpParticle;
     public AudioClip[] FartSounds;
     public AudioClip jumpSound;
-    private void Awake()
-    {
-         
-    }
+    public BoxCollider2D boxCollider;
+    public LayerMask targetLayer;
+    private float jumpMuteTimer;
   
     public override void OnEnter()
     {
-        controller.animator.CrossFade("Jump", 0.1f);    
-        controller.rb.velocity = new Vector2(controller.rb.velocity.x, JumpForce);
-        isSecondJump = false;
-        enterTimer = 0.2f;
-        SoundManager.Instance.PlaySound(jumpSound,0.5f);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            controller.animator.CrossFade("Jump", 0.1f);
+            controller.rb.velocity = new Vector2(controller.rb.velocity.x, JumpForce);
+            enterTimer = 0.2f;
+            SoundManager.Instance.PlaySound(jumpSound, 0.5f);
+            isSecondJump = false;
+        }
+        else
+        {
+            enterTimer = 0f;
+            isSecondJump = false;
+        }
     }
 
     public override void OnExit(MonoBaseState nextState)
@@ -40,13 +47,21 @@ public class ZombieState_Jump : MonoBaseState
         {
             controller.rb.AddForce(Vector2.down * ExtraGravity);
         }
+
+        if (IsOverlappingTargetLayer())
+        {
+            if (controller.fsm.GetCurrentState() == this)
+                controller.fsm.SwitchState(0);
+        }
     }
 
     public override void OnUpdate()
     {
         enterTimer -= Time.deltaTime;
+        jumpMuteTimer -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && enterTimer<0f && isSecondJump == false)
+
+        if (Input.GetKeyDown(KeyCode.Space) && enterTimer<0f && isSecondJump == false && jumpMuteTimer <0)
         {
             isSecondJump = true;
             SoundManager.Instance.PlayRandomSound(FartSounds,0.3f);
@@ -72,8 +87,6 @@ public class ZombieState_Jump : MonoBaseState
         if (collision.gameObject.layer == 3)
         {
             isGround = true;
-            if(controller.fsm.GetCurrentState() == this)
-            controller.fsm.SwitchState(0);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -82,5 +95,14 @@ public class ZombieState_Jump : MonoBaseState
         {
             isGround = false;
         }
+    }
+
+    bool IsOverlappingTargetLayer()
+    {
+        return Physics2D.OverlapBox(boxCollider.bounds.center, boxCollider.bounds.size, 0, targetLayer) != null;
+    }
+    public void MuteJump(float muteTime)
+    {
+        jumpMuteTimer = 0.2f;
     }
 }
