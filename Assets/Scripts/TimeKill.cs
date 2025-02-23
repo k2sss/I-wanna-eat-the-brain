@@ -5,10 +5,16 @@ using UnityEngine;
 public class TimeKill : MonoBehaviour
 {
     public float killTime;
+    private float timer;
     public bool isPoolObjectable;
-    void Start()
+    private void Update()
     {
-        Invoke(nameof(Kill), killTime);
+        timer += Time.deltaTime;
+        if (timer > killTime)
+        {
+            timer = 0;
+            Kill();
+        }
     }
 
     public void Kill()
@@ -17,5 +23,9 @@ public class TimeKill : MonoBehaviour
         Destroy(gameObject);
         else
             ObjectPool.Instance.PushObject(gameObject);
+    }
+    private void OnDisable()
+    {
+        timer = 0;
     }
 }

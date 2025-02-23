@@ -68,8 +68,20 @@ namespace Undertale
         }
         public virtual void EndTheAttack()
         {
+            CleanAttack();
             isable = false;
             OnAttackFinish?.Invoke();
+        }
+        public void CleanAttack()
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                GameObject obj = transform.GetChild(i).gameObject;
+                if (obj.activeSelf == true)
+                {
+                    ObjectPool.Instance.PushObject(obj);
+                }
+            }
         }
 
     }

@@ -28,9 +28,11 @@ public class SoundManager : BaseMonoManager<SoundManager>
     }
     public void PlayMusic(AudioClip clip, float volume = 1f, bool isLoop = true)
     {
+
         musicAudioSource.clip = clip;
         musicAudioSource.volume = volume;
         musicAudioSource.loop = isLoop;
         musicAudioSource.Play();
     }
+    
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.Events;
 public class GameEventTrigger : MonoBehaviour
@@ -50,5 +51,9 @@ public class GameEventTrigger : MonoBehaviour
             isPlayerEnter = false;
             onPlayerOut?.Invoke();
         }
+    }
+    public void PlaySound(AudioClip clip)
+    {
+        SoundManager.Instance.PlaySound(clip);
     }
 }

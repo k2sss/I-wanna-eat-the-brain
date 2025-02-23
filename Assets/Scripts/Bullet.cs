@@ -28,4 +28,8 @@ public class Bullet : MonoBehaviour
         }
         transform.Translate(direction * speed * Time.deltaTime);
     }
+    private void OnDisable()
+    {
+        timer = 0;
+    }
 }
